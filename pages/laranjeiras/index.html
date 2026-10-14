@@ -1,0 +1,711 @@
+<!-- wp:html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compra Ouro em Laranjeiras | Alex Joias — Avaliação Gratuita e Pagamento Imediato</title>
+<meta name="description" content="Compra ouro em Laranjeiras com avaliação gratuita e pagamento imediato. Alex Joias — Maison especializada em ouro, joias e relógios de luxo desde 1984. Acesse pelo Largo do Machado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--gold:#D4AF37;--gold-light:#F0D060;--gold-dark:#A8892B;--black:#050505;--black-soft:#0d0d0d;--black-card:#111111;--white:#f5f0e8;--white-dim:rgba(245,240,232,0.7);--white-faint:rgba(245,240,232,0.15);--font-display:'Cinzel',serif;--font-serif:'Cormorant Garamond',serif;--font-ui:'Inter',sans-serif;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--black);color:var(--white);font-family:var(--font-serif);overflow-x:hidden;cursor:none;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{cursor:none;border:none;background:none;font-family:inherit;}
+
+/* ── CUSTOM CURSOR ── */
+#aj-cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s ease;mix-blend-mode:difference;}
+#aj-cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.18s ease;opacity:0.5;}
+body.cursor-hover #aj-cursor{transform:translate(-50%,-50%) scale(2.5);}
+body.cursor-hover #aj-cursor-ring{transform:translate(-50%,-50%) scale(0.6);opacity:1;}
+
+/* ── SCROLL PROGRESS ── */
+#aj-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));z-index:9997;width:0%;transition:width 0.1s linear;}
+
+/* ── NAV DOTS ── */
+#aj-nav-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:10px;}
+.aj-dot{width:6px;height:6px;border-radius:50%;background:var(--white-faint);border:1px solid rgba(212,175,55,0.3);cursor:none;transition:all 0.3s ease;}
+.aj-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.4);}
+
+/* ── HEADER ── */
+#aj-header{position:fixed;top:0;left:0;width:100%;z-index:800;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;transition:all 0.4s ease;}
+#aj-header.scrolled{background:rgba(5,5,5,0.92);backdrop-filter:blur(12px);padding:14px 5%;border-bottom:1px solid rgba(212,175,55,0.12);}
+.aj-logo-wrap{display:flex;align-items:center;gap:14px;}
+.aj-logo-img{width:52px;height:52px;object-fit:contain;transition:width 0.3s,height 0.3s;}
+#aj-header.scrolled .aj-logo-img{width:40px;height:40px;}
+.aj-logo-text{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;}
+.aj-header-cta{font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:10px 22px;transition:all 0.3s ease;}
+.aj-header-cta:hover{background:var(--gold);color:var(--black);}
+
+/* ── WHATSAPP BTN ── */
+#aj-whatsapp{position:fixed;bottom:32px;right:28px;z-index:890;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.35);animation:waPulse 2.5s ease infinite;}
+#aj-whatsapp svg{width:28px;height:28px;fill:#fff;}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.35);}50%{box-shadow:0 4px 36px rgba(37,211,102,0.6);}}
+
+/* ── GOLDEN DIVIDER ── */
+.aj-divider{display:flex;align-items:center;gap:16px;justify-content:center;padding:0 5%;}
+.aj-divider::before,.aj-divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.aj-divider-icon{color:var(--gold);font-size:1rem;letter-spacing:0.3em;}
+
+/* ── HERO ── */
+#aj-hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden;}
+.aj-hero-bg{position:absolute;inset:0;background-image:url('https://compraourorj.com.br/wp-content/uploads/alex-joias/hero-gold-particles.png');background-size:cover;background-position:center;transform:scale(1.08);transition:transform 0.05s linear;}
+.aj-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(5,5,5,0.88) 0%,rgba(5,5,5,0.55) 60%,rgba(5,5,5,0.75) 100%);}
+.aj-hero-watch{position:absolute;right:5%;bottom:0;width:42%;max-width:520px;object-fit:contain;filter:drop-shadow(0 0 60px rgba(212,175,55,0.2));animation:heroFloat 6s ease-in-out infinite;}
+@keyframes heroFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+.aj-hero-content{position:relative;z-index:2;padding:0 5%;max-width:640px;}
+.aj-hero-eyebrow{font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.aj-hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);}
+.aj-hero-title{font-family:var(--font-serif);font-size:clamp(2.6rem,5.5vw,4.2rem);font-weight:300;line-height:1.1;margin-bottom:24px;color:var(--white);}
+.aj-hero-title em{font-style:italic;color:var(--gold);}
+.aj-typewriter{font-family:var(--font-serif);font-size:clamp(1rem,2vw,1.3rem);font-weight:300;color:var(--white-dim);margin-bottom:36px;min-height:2rem;}
+.aj-hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.aj-btn-primary{font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;background:var(--gold);color:var(--black);padding:16px 36px;transition:all 0.3s ease;display:inline-flex;align-items:center;gap:10px;}
+.aj-btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+.aj-btn-secondary{font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;border:1px solid rgba(212,175,55,0.4);color:var(--white);padding:16px 36px;transition:all 0.3s ease;}
+.aj-btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+.aj-hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--white-dim);font-family:var(--font-display);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;}
+.aj-scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollLine 1.8s ease infinite;}
+@keyframes scrollLine{0%{opacity:0;transform:scaleY(0);transform-origin:top;}50%{opacity:1;}100%{opacity:0;transform:scaleY(1);transform-origin:bottom;}}
+
+/* ── STATS BAND ── */
+#aj-stats{background:var(--black-soft);border-top:1px solid rgba(212,175,55,0.12);border-bottom:1px solid rgba(212,175,55,0.12);padding:52px 5%;}
+.aj-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.aj-stat{text-align:center;padding:20px;border-right:1px solid rgba(212,175,55,0.1);}
+.aj-stat:last-child{border-right:none;}
+.aj-stat-number{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--gold);line-height:1;margin-bottom:6px;}
+.aj-stat-label{font-family:var(--font-display);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--white-dim);}
+
+/* ── ABOUT SPLIT ── */
+#aj-about{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.aj-about-img-wrap{position:relative;}
+.aj-about-img-main{width:100%;aspect-ratio:3/4;object-fit:cover;}
+.aj-about-img-accent{position:absolute;bottom:-32px;right:-32px;width:55%;aspect-ratio:1;object-fit:cover;border:4px solid var(--black);box-shadow:0 0 0 1px var(--gold);}
+.aj-about-badge{position:absolute;top:24px;left:-24px;width:88px;height:88px;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.aj-about-badge-num{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:var(--black);line-height:1;}
+.aj-about-badge-text{font-family:var(--font-display);font-size:0.45rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--black);}
+.aj-section-eyebrow{font-family:var(--font-display);font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.aj-section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+.aj-section-title{font-family:var(--font-serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.2;margin-bottom:24px;}
+.aj-section-title em{font-style:italic;color:var(--gold);}
+.aj-body-text{font-family:var(--font-serif);font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--white-dim);margin-bottom:20px;}
+.aj-about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+.aj-tag{font-family:var(--font-display);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;border:1px solid rgba(212,175,55,0.3);color:var(--white-dim);padding:8px 16px;transition:all 0.3s;}
+.aj-tag:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ── GALLERY ── */
+#aj-gallery{padding:80px 5%;}
+.aj-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;}
+.aj-gallery-item{overflow:hidden;aspect-ratio:3/4;position:relative;}
+.aj-gallery-item:first-child{aspect-ratio:auto;grid-row:span 2;}
+.aj-gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+.aj-gallery-item:hover img{transform:scale(1.06);}
+.aj-gallery-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,0.5),transparent);opacity:0;transition:opacity 0.4s;}
+.aj-gallery-item:hover::after{opacity:1;}
+
+/* ── SERVICES GRID ── */
+#aj-services{padding:100px 5%;background:var(--black-soft);}
+.aj-services-header{text-align:center;max-width:600px;margin:0 auto 64px;}
+.aj-services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.aj-service-card{background:var(--black-card);padding:44px 36px;border:1px solid transparent;transition:all 0.4s ease;position:relative;overflow:hidden;}
+.aj-service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.4s;}
+.aj-service-card:hover{border-color:rgba(212,175,55,0.15);transform:translateY(-4px);}
+.aj-service-card:hover::before{transform:scaleX(1);}
+.aj-service-icon{width:48px;height:48px;margin-bottom:24px;color:var(--gold);}
+.aj-service-title{font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin-bottom:14px;}
+.aj-service-desc{font-family:var(--font-serif);font-size:0.95rem;font-weight:300;line-height:1.7;color:var(--white-dim);}
+.aj-service-img{width:100%;aspect-ratio:16/9;object-fit:cover;margin-top:24px;filter:brightness(0.7);transition:filter 0.4s;}
+.aj-service-card:hover .aj-service-img{filter:brightness(0.9);}
+
+/* ── PROCESS ── */
+#aj-process{padding:100px 5%;}
+.aj-process-header{text-align:center;max-width:560px;margin:0 auto 72px;}
+.aj-process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;}
+.aj-process-steps::before{content:'';position:absolute;top:56px;left:16.67%;right:16.67%;height:1px;background:linear-gradient(90deg,var(--gold),var(--gold-dark),var(--gold));opacity:0.3;}
+.aj-step{text-align:center;padding:0 40px;}
+.aj-step-num{width:112px;height:112px;border-radius:50%;border:1px solid rgba(212,175,55,0.25);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;position:relative;transition:all 0.4s;}
+.aj-step-num::before{content:'';position:absolute;inset:6px;border-radius:50%;border:1px solid rgba(212,175,55,0.1);}
+.aj-step-num-inner{font-family:var(--font-serif);font-size:2.2rem;font-weight:300;color:var(--gold);}
+.aj-step:hover .aj-step-num{border-color:var(--gold);background:rgba(212,175,55,0.05);}
+.aj-step-img{width:100%;aspect-ratio:1;object-fit:cover;margin-bottom:24px;filter:brightness(0.75);transition:filter 0.4s;}
+.aj-step:hover .aj-step-img{filter:brightness(0.95);}
+.aj-step-title{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin-bottom:12px;}
+.aj-step-desc{font-family:var(--font-serif);font-size:0.95rem;font-weight:300;line-height:1.7;color:var(--white-dim);}
+
+/* ── PARALLAX BANNER ── */
+#aj-parallax{position:relative;height:500px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.aj-parallax-bg{position:absolute;inset:-80px 0;background-image:url('https://compraourorj.com.br/wp-content/uploads/alex-joias/parallax-consultation.jpg');background-size:cover;background-position:center;filter:brightness(0.3);}
+.aj-parallax-content{position:relative;z-index:2;text-align:center;padding:0 5%;}
+.aj-parallax-title{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;color:var(--white);margin-bottom:16px;}
+.aj-parallax-title em{font-style:italic;color:var(--gold);}
+.aj-parallax-sub{font-family:var(--font-ui);font-size:0.9rem;font-weight:300;color:var(--white-dim);letter-spacing:0.05em;margin-bottom:36px;}
+
+/* ── WATCHES SPLIT ── */
+#aj-watches{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.aj-watches-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.aj-watches-imgs img{width:100%;aspect-ratio:3/4;object-fit:cover;}
+.aj-watches-imgs img:first-child{margin-top:40px;}
+
+/* ── TESTIMONIALS ── */
+#aj-testimonials{padding:100px 0;overflow:hidden;background:var(--black-soft);}
+.aj-testimonials-header{text-align:center;padding:0 5%;margin-bottom:52px;}
+.aj-marquee-track{display:flex;gap:24px;animation:marqueeScroll 30s linear infinite;}
+.aj-marquee-track:hover{animation-play-state:paused;}
+.aj-testimonial-card{flex-shrink:0;width:340px;background:var(--black-card);border:1px solid rgba(212,175,55,0.1);padding:36px 32px;}
+.aj-testimonial-stars{color:var(--gold);font-size:0.8rem;margin-bottom:16px;letter-spacing:0.2em;}
+.aj-testimonial-text{font-family:var(--font-serif);font-size:1rem;font-style:italic;font-weight:300;line-height:1.75;color:var(--white-dim);margin-bottom:20px;}
+.aj-testimonial-author{font-family:var(--font-display);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+.aj-testimonial-meta{font-family:var(--font-ui);font-size:0.75rem;color:rgba(245,240,232,0.4);margin-top:2px;}
+@keyframes marqueeScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}  }
+
+/* ── INFO + LIST ── */
+#aj-info{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.aj-info-list{list-style:none;}
+.aj-info-list li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(212,175,55,0.08);}
+.aj-info-list li:first-child{border-top:1px solid rgba(212,175,55,0.08);}
+.aj-info-check{width:20px;height:20px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.aj-info-check svg{width:10px;height:10px;stroke:var(--gold);fill:none;}
+.aj-info-item-title{font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);margin-bottom:4px;}
+.aj-info-item-desc{font-family:var(--font-serif);font-size:0.9rem;font-weight:300;color:var(--white-dim);line-height:1.6;}
+
+/* ── FAQ ── */
+#aj-faq{padding:100px 5%;background:var(--black-soft);}
+.aj-faq-header{text-align:center;max-width:560px;margin:0 auto 56px;}
+.aj-faq-list{max-width:760px;margin:0 auto;}
+.aj-faq-item{border-bottom:1px solid rgba(212,175,55,0.1);}
+.aj-faq-question{width:100%;text-align:left;padding:22px 0;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-serif);font-size:1.05rem;font-weight:400;color:var(--white);transition:color 0.3s;cursor:none;}
+.aj-faq-question:hover,.aj-faq-question.active{color:var(--gold);}
+.aj-faq-icon{width:20px;height:20px;border:1px solid rgba(212,175,55,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s;}
+.aj-faq-question.active .aj-faq-icon{background:var(--gold);border-color:var(--gold);}
+.aj-faq-icon svg{width:10px;height:10px;stroke:currentColor;fill:none;transition:transform 0.3s;}
+.aj-faq-question.active .aj-faq-icon svg{stroke:var(--black);transform:rotate(45deg);}
+.aj-faq-answer{max-height:0;overflow:hidden;transition:max-height 0.45s ease,padding 0.3s;}
+.aj-faq-answer.open{max-height:300px;padding-bottom:20px;}
+.aj-faq-answer p{font-family:var(--font-serif);font-size:0.98rem;font-weight:300;line-height:1.75;color:var(--white-dim);}
+
+/* ── MAP + CONTACT ── */
+#aj-map{padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.aj-map-embed{width:100%;aspect-ratio:4/3;border:0;filter:grayscale(100%) invert(92%) contrast(83%) brightness(40%) sepia(50%) hue-rotate(180deg);}
+.aj-contact-list{list-style:none;margin-top:32px;}
+.aj-contact-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(212,175,55,0.08);}
+.aj-contact-icon{width:36px;height:36px;border:1px solid rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.aj-contact-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;}
+.aj-contact-label{font-family:var(--font-display);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.aj-contact-value{font-family:var(--font-serif);font-size:0.95rem;font-weight:300;color:var(--white-dim);}
+
+/* ── CTA FINAL ── */
+#aj-cta{padding:120px 5%;text-align:center;background:var(--black);position:relative;overflow:hidden;}
+#aj-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(212,175,55,0.06),transparent);}
+.aj-cta-content{position:relative;z-index:2;max-width:640px;margin:0 auto;}
+.aj-cta-title{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:20px;}
+.aj-cta-title em{font-style:italic;color:var(--gold);}
+.aj-cta-sub{font-family:var(--font-ui);font-size:0.9rem;font-weight:300;color:var(--white-dim);margin-bottom:40px;line-height:1.6;}
+.aj-cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+/* ── FOOTER ── */
+#aj-footer{background:var(--black-soft);border-top:1px solid rgba(212,175,55,0.1);padding:60px 5% 32px;}
+.aj-footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:52px;}
+.aj-footer-brand-logo{width:64px;margin-bottom:20px;}
+.aj-footer-tagline{font-family:var(--font-serif);font-size:0.95rem;font-style:italic;font-weight:300;color:var(--white-dim);line-height:1.7;max-width:280px;}
+.aj-footer-col-title{font-family:var(--font-display);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.aj-footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.aj-footer-links a{font-family:var(--font-ui);font-size:0.85rem;font-weight:300;color:var(--white-dim);transition:color 0.3s;}
+.aj-footer-links a:hover{color:var(--gold);}
+.aj-footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(212,175,55,0.08);}
+.aj-footer-copy{font-family:var(--font-ui);font-size:0.75rem;color:rgba(245,240,232,0.3);}
+.aj-footer-creci{font-family:var(--font-display);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,55,0.4);}
+
+/* ── SCROLL REVEAL ── */
+.aj-reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.aj-reveal.visible{opacity:1;transform:translateY(0);}
+.aj-reveal-delay-1{transition-delay:0.1s;}
+.aj-reveal-delay-2{transition-delay:0.2s;}
+.aj-reveal-delay-3{transition-delay:0.3s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){body{cursor:auto;}#aj-cursor,#aj-cursor-ring,#aj-nav-dots{display:none;}#aj-about,#aj-watches,#aj-map,#aj-info{grid-template-columns:1fr;}.aj-about-img-accent{display:none;}.aj-stats-grid{grid-template-columns:repeat(2,1fr);}.aj-stat{border-right:none;border-bottom:1px solid rgba(212,175,55,0.1);}.aj-services-grid,.aj-process-steps,.aj-footer-top{grid-template-columns:1fr;}.aj-gallery-grid{grid-template-columns:1fr 1fr;}.aj-gallery-item:first-child{grid-row:auto;}.aj-watches-imgs{grid-template-columns:1fr;}.aj-watches-imgs img:first-child{margin-top:0;}.aj-process-steps::before{display:none;}}
+@media(max-width:480px){.aj-stats-grid{grid-template-columns:1fr;}.aj-gallery-grid{grid-template-columns:1fr;}.aj-hero-watch{display:none;}.aj-footer-top{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="aj-cursor"></div>
+<div id="aj-cursor-ring"></div>
+
+<!-- PROGRESS -->
+<div id="aj-progress"></div>
+
+<!-- NAV DOTS -->
+<nav id="aj-nav-dots" aria-label="Navegação por seções">
+  <button class="aj-dot active" data-section="aj-hero" aria-label="Hero"></button>
+  <button class="aj-dot" data-section="aj-stats" aria-label="Números"></button>
+  <button class="aj-dot" data-section="aj-about" aria-label="Sobre"></button>
+  <button class="aj-dot" data-section="aj-services" aria-label="Serviços"></button>
+  <button class="aj-dot" data-section="aj-process" aria-label="Processo"></button>
+  <button class="aj-dot" data-section="aj-watches" aria-label="Relógios"></button>
+  <button class="aj-dot" data-section="aj-testimonials" aria-label="Depoimentos"></button>
+  <button class="aj-dot" data-section="aj-faq" aria-label="FAQ"></button>
+  <button class="aj-dot" data-section="aj-map" aria-label="Localização"></button>
+</nav>
+
+<!-- HEADER -->
+<header id="aj-header">
+  <div class="aj-logo-wrap">
+    <img class="aj-logo-img" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/logo-maison.png" alt="Maison Alex Joias" width="52" height="52">
+    <span class="aj-logo-text">Alex Joias</span>
+  </div>
+  <a class="aj-header-cta" href="https://wa.me/5521999999999?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+em+Laranjeiras." target="_blank" rel="noopener">Avaliação Gratuita</a>
+</header>
+
+<!-- WHATSAPP -->
+<a id="aj-whatsapp" href="https://wa.me/5521999999999?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+em+Laranjeiras." target="_blank" rel="noopener" aria-label="Fale pelo WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 1 — HERO
+══════════════════════════════════════ -->
+<section id="aj-hero" data-section="aj-hero">
+  <div class="aj-hero-bg" id="ajHeroBg"></div>
+  <img class="aj-hero-watch" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/hero-watch.png" alt="Rolex Datejust — Alex Joias" loading="eager">
+  <div class="aj-hero-content">
+    <div class="aj-hero-eyebrow">Maison Alex Joias · Desde 1984</div>
+    <h1 class="aj-hero-title">Compra Ouro<br>em <em>Laranjeiras</em><br>com Quem Entende</h1>
+    <p class="aj-typewriter" id="ajTypewriter"></p>
+    <div class="aj-hero-actions">
+      <a class="aj-btn-primary" href="https://wa.me/5521999999999?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+em+Laranjeiras." target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Avaliação Gratuita Agora
+      </a>
+      <a class="aj-btn-secondary" href="#aj-process">Como Funciona</a>
+    </div>
+  </div>
+  <div class="aj-hero-scroll" aria-hidden="true">
+    <span class="aj-scroll-line"></span>
+    <span>Role</span>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="aj-divider" aria-hidden="true"><span class="aj-divider-icon">✦ ✦ ✦</span></div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 2 — STATS BAND
+══════════════════════════════════════ -->
+<section id="aj-stats" data-section="aj-stats">
+  <div class="aj-stats-grid">
+    <div class="aj-stat aj-reveal">
+      <div class="aj-stat-number" data-count="40">0</div>
+      <div class="aj-stat-label">Anos de Expertise</div>
+    </div>
+    <div class="aj-stat aj-reveal aj-reveal-delay-1">
+      <div class="aj-stat-number" data-count="50000" data-prefix="" data-suffix="K+">0</div>
+      <div class="aj-stat-label">Peças Avaliadas</div>
+    </div>
+    <div class="aj-stat aj-reveal aj-reveal-delay-2">
+      <div class="aj-stat-number" data-count="500" data-prefix="R$" data-suffix="M+">0</div>
+      <div class="aj-stat-label">Em Transações</div>
+    </div>
+    <div class="aj-stat aj-reveal aj-reveal-delay-3">
+      <div class="aj-stat-number" data-count="49" data-decimals="1">0</div>
+      <div class="aj-stat-label">Avaliação no Google ★</div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="aj-divider" aria-hidden="true"><span class="aj-divider-icon">✦</span></div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 3 — SOBRE (SPLIT)
+══════════════════════════════════════ -->
+<section id="aj-about" data-section="aj-about">
+  <div class="aj-about-img-wrap aj-reveal">
+    <img class="aj-about-img-main" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/about-specialist.jpg" alt="Especialista Alex Joias avaliando relógio" loading="lazy">
+    <img class="aj-about-img-accent" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/about-diamond.jpg" alt="Avaliação de diamante com lupa gemmológica" loading="lazy">
+    <div class="aj-about-badge"><span class="aj-about-badge-num">40</span><span class="aj-about-badge-text">anos</span></div>
+  </div>
+  <div class="aj-reveal aj-reveal-delay-1">
+    <div class="aj-section-eyebrow">Quem Somos</div>
+    <h2 class="aj-section-title">Uma Maison construída<br>sobre <em>confiança e precisão</em></h2>
+    <p class="aj-body-text">Há mais de quatro décadas, a Maison Alex Joias é a referência em avaliação e compra de ouro, joias e relógios de luxo na Zona Sul do Rio de Janeiro. Atendemos em Laranjeiras — a poucos minutos do Largo do Machado e do Palácio das Laranjeiras — com a discrição e o rigor técnico que grandes fortunas exigem.</p>
+    <p class="aj-body-text">Cada peça é avaliada por gemologistas certificados com espectrômetro XRF de última geração. Pagamento imediato, sem burocracia, com total confidencialidade.</p>
+    <div class="aj-about-tags">
+      <span class="aj-tag">Gemologistas Certificados</span>
+      <span class="aj-tag">Espectrômetro XRF</span>
+      <span class="aj-tag">Pagamento Imediato</span>
+      <span class="aj-tag">Sigilo Absoluto</span>
+      <span class="aj-tag">Desde 1984</span>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="aj-divider" aria-hidden="true"><span class="aj-divider-icon">✦ ✦ ✦</span></div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 4 — GALERIA
+══════════════════════════════════════ -->
+<section id="aj-gallery" data-section="aj-gallery">
+  <div class="aj-services-header aj-reveal">
+    <div class="aj-section-eyebrow" style="justify-content:center;">Portfólio</div>
+    <h2 class="aj-section-title" style="text-align:center;">O que <em>avaliamos</em> e compramos</h2>
+  </div>
+  <div class="aj-gallery-grid">
+    <div class="aj-gallery-item aj-reveal"><img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/gallery-jewelry-collection.jpg" alt="Coleção de joias e relógios" loading="lazy"></div>
+    <div class="aj-gallery-item aj-reveal aj-reveal-delay-1"><img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/gallery-rolex-marble.jpg" alt="Rolex Datejust sobre mármore" loading="lazy"></div>
+    <div class="aj-gallery-item aj-reveal aj-reveal-delay-1"><img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/gallery-jewelry-box.jpg" alt="Estojo de joias de diamante" loading="lazy"></div>
+    <div class="aj-gallery-item aj-reveal aj-reveal-delay-2"><img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/gallery-rolex-bokeh.jpg" alt="Rolex com bokeh dourado" loading="lazy"></div>
+    <div class="aj-gallery-item aj-reveal aj-reveal-delay-2"><img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/gallery-black-box.jpg" alt="Estojo negro sendo aberto" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="aj-divider" aria-hidden="true"><span class="aj-divider-icon">✦</span></div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 5 — SERVIÇOS
+══════════════════════════════════════ -->
+<section id="aj-services" data-section="aj-services">
+  <div class="aj-services-header aj-reveal">
+    <div class="aj-section-eyebrow" style="justify-content:center;">Serviços</div>
+    <h2 class="aj-section-title" style="text-align:center;">O que fazemos<br><em>em Laranjeiras</em></h2>
+    <p class="aj-body-text" style="text-align:center;margin-top:12px;">Avaliação gratuita, pagamento imediato e total discrição para moradores da Zona Sul.</p>
+  </div>
+  <div class="aj-services-grid">
+    <div class="aj-service-card aj-reveal">
+      <svg class="aj-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <h3 class="aj-service-title">Compra de Ouro</h3>
+      <p class="aj-service-desc">Ouro em qualquer forma: joias, barras, moedas, fragmentos, sucatas. Pesagem em balança certificada e pagamento na hora.</p>
+      <img class="aj-service-img" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/service-gold-weighing.jpg" alt="Pesagem de ouro em balança de precisão" loading="lazy">
+    </div>
+    <div class="aj-service-card aj-reveal aj-reveal-delay-1">
+      <svg class="aj-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <h3 class="aj-service-title">Joias e Diamantes</h3>
+      <p class="aj-service-desc">Colares, pulseiras, brincos, anéis e pedras soltas. Avaliação gemmológica com laudo e proposta transparente.</p>
+      <img class="aj-service-img" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/service-diamond-loupe.jpg" alt="Avaliação de diamante com lupa" loading="lazy">
+    </div>
+    <div class="aj-service-card aj-reveal aj-reveal-delay-2">
+      <svg class="aj-service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+      <h3 class="aj-service-title">Relógios de Luxo</h3>
+      <p class="aj-service-desc">Rolex, Patek Philippe, Audemars Piguet, Cartier e outras maisons. Avaliação por especialistas certificados.</p>
+      <img class="aj-service-img" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/service-watch-presentation.jpg" alt="Apresentação de relógio Rolex" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 6 — PROCESSO (3 PASSOS)
+══════════════════════════════════════ -->
+<section id="aj-process" data-section="aj-process">
+  <div class="aj-process-header aj-reveal">
+    <div class="aj-section-eyebrow" style="justify-content:center;">Como Funciona</div>
+    <h2 class="aj-section-title" style="text-align:center;">Do contato ao<br><em>pagamento imediato</em></h2>
+  </div>
+  <div class="aj-process-steps">
+    <div class="aj-step aj-reveal">
+      <img class="aj-step-img" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/step-whatsapp.jpg" alt="Contato via WhatsApp" loading="lazy">
+      <div class="aj-step-num"><span class="aj-step-num-inner">I</span></div>
+      <h3 class="aj-step-title">Contato & Agendamento</h3>
+      <p class="aj-step-desc">Envie uma foto das suas peças pelo WhatsApp. Nossa equipe responde em minutos e agenda sua visita em Laranjeiras.</p>
+    </div>
+    <div class="aj-step aj-reveal aj-reveal-delay-1">
+      <img class="aj-step-img" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/step-xrf.jpg" alt="Análise com espectrômetro XRF" loading="lazy">
+      <div class="aj-step-num"><span class="aj-step-num-inner">II</span></div>
+      <h3 class="aj-step-title">Avaliação Técnica</h3>
+      <p class="aj-step-desc">Análise com espectrômetro XRF, balança certificada e lupa gemmológica. Diagnóstico preciso, transparente e gratuito.</p>
+    </div>
+    <div class="aj-step aj-reveal aj-reveal-delay-2">
+      <img class="aj-step-img" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/step-payment.jpg" alt="Pagamento imediato" loading="lazy">
+      <div class="aj-step-num"><span class="aj-step-num-inner">III</span></div>
+      <h3 class="aj-step-title">Proposta & Pagamento</h3>
+      <p class="aj-step-desc">Você recebe uma proposta justa baseada na cotação do dia. Se aceitar, o pagamento é imediato — PIX, transferência ou espécie.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 7 — PARALLAX
+══════════════════════════════════════ -->
+<div id="aj-parallax">
+  <div class="aj-parallax-bg" id="ajParallaxBg"></div>
+  <div class="aj-parallax-content aj-reveal">
+    <div class="aj-section-eyebrow" style="justify-content:center;">Localização</div>
+    <h2 class="aj-parallax-title">Estamos em <em>Laranjeiras</em>,<br>ao lado do Largo do Machado</h2>
+    <p class="aj-parallax-sub">Acesse pelo Túnel Santa Bárbara ou Rua Pinheiro Machado<br>Metrô Catete + ônibus para Copacabana</p>
+    <a class="aj-btn-primary" href="https://wa.me/5521999999999?text=Ol%C3%A1%2C+gostaria+de+visitar+a+Alex+Joias+em+Laranjeiras." target="_blank" rel="noopener">Agendar Visita</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 8 — RELÓGIOS (SPLIT)
+══════════════════════════════════════ -->
+<section id="aj-watches" data-section="aj-watches">
+  <div class="aj-watches-imgs aj-reveal">
+    <img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/watch-datejust-marble.jpg" alt="Rolex Datejust sobre mármore negro" loading="lazy">
+    <img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/watch-gloved-hands.jpg" alt="Rolex nas mãos enluvadas do especialista" loading="lazy">
+    <img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/watch-inspection.jpg" alt="Inspeção de Rolex com lupa" loading="lazy">
+    <img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/watch-diamonds-bokeh.jpg" alt="Rolex com diamantes e bokeh dourado" loading="lazy">
+  </div>
+  <div class="aj-reveal aj-reveal-delay-1">
+    <div class="aj-section-eyebrow">Relógios de Luxo</div>
+    <h2 class="aj-section-title">Compramos seu<br><em>Rolex e muito mais</em></h2>
+    <p class="aj-body-text">Somos referência na avaliação e compra de relógios de luxo no Rio de Janeiro. Rolex, Patek Philippe, Audemars Piguet, Richard Mille, Vacheron Constantin, IWC e outras maisons suíças.</p>
+    <p class="aj-body-text">Nossos especialistas conhecem cada referência, cada complicação, cada detalhe que determina o valor real de um relógio no mercado atual.</p>
+    <ul class="aj-info-list" style="margin-top:28px;">
+      <li>
+        <div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
+        <div><div class="aj-info-item-title">Rolex Datejust, Submariner, GMT, Daytona</div><div class="aj-info-item-desc">Todas as referências — originais com ou sem caixa e papéis</div></div>
+      </li>
+      <li>
+        <div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
+        <div><div class="aj-info-item-title">Patek Philippe & Audemars Piguet</div><div class="aj-info-item-desc">Nautilus, Royal Oak, Calatrava e complicações raras</div></div>
+      </li>
+      <li>
+        <div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div>
+        <div><div class="aj-info-item-title">Cartier, IWC, Breitling, Panerai</div><div class="aj-info-item-desc">Avaliação justa com base na cotação internacional do dia</div></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="aj-divider" aria-hidden="true"><span class="aj-divider-icon">✦ ✦ ✦</span></div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 9 — DEPOIMENTOS
+══════════════════════════════════════ -->
+<section id="aj-testimonials" data-section="aj-testimonials">
+  <div class="aj-testimonials-header aj-reveal">
+    <div class="aj-section-eyebrow" style="justify-content:center;">Clientes</div>
+    <h2 class="aj-section-title" style="text-align:center;">O que dizem sobre<br><em>nossa discrição e justiça</em></h2>
+  </div>
+  <div style="overflow:hidden;">
+    <div class="aj-marquee-track" id="ajMarquee">
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Herdei joias da minha avó e não sabia o que fazer. A Alex Joias me recebeu em Laranjeiras com toda discrição, explicou cada detalhe da avaliação e pagou na hora. Experiência impecável."</p><div class="aj-testimonial-author">Isabela M.</div><div class="aj-testimonial-meta">Laranjeiras · Ouro 18K + Brilhantes</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Precisei vender meu Rolex Submariner com urgência. Fui indicado pela imobiliária do Largo do Machado. Avaliação justa, acima do que esperava, e transferência em minutos."</p><div class="aj-testimonial-author">Ricardo A.</div><div class="aj-testimonial-meta">Laranjeiras · Rolex Submariner Date</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Moro perto do Palácio das Laranjeiras há 20 anos e nunca soube dessa joia aqui do bairro. Vendi pulseiras de ouro e diamantes com total confiança. Voltarei com certeza."</p><div class="aj-testimonial-author">Fernanda C.</div><div class="aj-testimonial-meta">Laranjeiras · Joias de Diamante</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Vim de Botafogo especificamente. Empresa séria, ambiente discreto, especialistas que realmente conhecem o que estão avaliando. Preço justo e atendimento de primeira classe."</p><div class="aj-testimonial-author">Paulo H.</div><div class="aj-testimonial-meta">Botafogo · Ouro 750 + Relógio</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Realizei a venda de um conjunto completo de joias de família. O processo foi conduzido com extremo profissionalismo. Cada peça foi avaliada individualmente com toda a explicação técnica."</p><div class="aj-testimonial-author">Ana Beatriz S.</div><div class="aj-testimonial-meta">Flamengo · Conjunto Heritage</div></div>
+      <!-- duplicata para efeito infinito -->
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Herdei joias da minha avó e não sabia o que fazer. A Alex Joias me recebeu em Laranjeiras com toda discrição, explicou cada detalhe da avaliação e pagou na hora. Experiência impecável."</p><div class="aj-testimonial-author">Isabela M.</div><div class="aj-testimonial-meta">Laranjeiras · Ouro 18K + Brilhantes</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Precisei vender meu Rolex Submariner com urgência. Fui indicado pela imobiliária do Largo do Machado. Avaliação justa, acima do que esperava, e transferência em minutos."</p><div class="aj-testimonial-author">Ricardo A.</div><div class="aj-testimonial-meta">Laranjeiras · Rolex Submariner Date</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Moro perto do Palácio das Laranjeiras há 20 anos e nunca soube dessa joia aqui do bairro. Vendi pulseiras de ouro e diamantes com total confiança. Voltarei com certeza."</p><div class="aj-testimonial-author">Fernanda C.</div><div class="aj-testimonial-meta">Laranjeiras · Joias de Diamante</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Vim de Botafogo especificamente. Empresa séria, ambiente discreto, especialistas que realmente conhecem o que estão avaliando. Preço justo e atendimento de primeira classe."</p><div class="aj-testimonial-author">Paulo H.</div><div class="aj-testimonial-meta">Botafogo · Ouro 750 + Relógio</div></div>
+      <div class="aj-testimonial-card"><div class="aj-testimonial-stars">★★★★★</div><p class="aj-testimonial-text">"Realizei a venda de um conjunto completo de joias de família. O processo foi conduzido com extremo profissionalismo. Cada peça foi avaliada individualmente com toda a explicação técnica."</p><div class="aj-testimonial-author">Ana Beatriz S.</div><div class="aj-testimonial-meta">Flamengo · Conjunto Heritage</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 10 — INFO + LISTA
+══════════════════════════════════════ -->
+<section id="aj-info" data-section="aj-info">
+  <div class="aj-reveal">
+    <div class="aj-section-eyebrow">Por que Alex Joias</div>
+    <h2 class="aj-section-title">O que nos torna<br>a <em>escolha certa</em><br>em Laranjeiras</h2>
+    <p class="aj-body-text">Há mais de quatro décadas escolhemos fazer menos — mas sempre melhor. Não somos uma rede, não temos franquias. Somos uma maison familiar, com reputação construída cliente a cliente.</p>
+    <img src="https://compraourorj.com.br/wp-content/uploads/alex-joias/consultation-desk.jpg" alt="Atendimento consultivo na Alex Joias" loading="lazy" style="margin-top:36px;width:100%;aspect-ratio:16/9;object-fit:cover;">
+  </div>
+  <div class="aj-reveal aj-reveal-delay-1">
+    <ul class="aj-info-list">
+      <li><div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div><div><div class="aj-info-item-title">Avaliação 100% gratuita e sem compromisso</div><div class="aj-info-item-desc">Traga suas peças. Se não aceitar nossa proposta, pode ir embora — sem custo, sem pressão.</div></div></li>
+      <li><div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div><div><div class="aj-info-item-title">Espectrômetro XRF de última geração</div><div class="aj-info-item-desc">Análise não destrutiva que determina a composição exata do metal — sem raspar, sem danificar sua peça.</div></div></li>
+      <li><div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div><div><div class="aj-info-item-title">Cotação internacional atualizada em tempo real</div><div class="aj-info-item-desc">Trabalhamos com a cotação London Bullion Market Association (LBMA) do dia da avaliação.</div></div></li>
+      <li><div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div><div><div class="aj-info-item-title">Pagamento imediato — PIX, TED ou espécie</div><div class="aj-info-item-desc">Confirmada a venda, o valor cai na sua conta em minutos. Sem cheques, sem promessas, sem espera.</div></div></li>
+      <li><div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div><div><div class="aj-info-item-title">Confidencialidade absoluta</div><div class="aj-info-item-desc">Sua visita e a natureza da transação são assunto exclusivamente nosso. Discrição é um valor inegociável.</div></div></li>
+      <li><div class="aj-info-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3" stroke-width="1.5"/></svg></div><div><div class="aj-info-item-title">Fácil acesso em Laranjeiras</div><div class="aj-info-item-desc">Pelo Túnel Santa Bárbara ou Rua Pinheiro Machado. Metrô Catete + ônibus para Copacabana. Estacionamento próximo.</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="aj-divider" aria-hidden="true"><span class="aj-divider-icon">✦ ✦ ✦</span></div>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 11 — FAQ
+══════════════════════════════════════ -->
+<section id="aj-faq" data-section="aj-faq">
+  <div class="aj-faq-header aj-reveal">
+    <div class="aj-section-eyebrow" style="justify-content:center;">Dúvidas Frequentes</div>
+    <h2 class="aj-section-title" style="text-align:center;">Perguntas sobre<br><em>compra de ouro</em> em Laranjeiras</h2>
+  </div>
+  <div class="aj-faq-list aj-reveal">
+    <div class="aj-faq-item"><button class="aj-faq-question" aria-expanded="false">Preciso agendar ou posso chegar sem hora marcada?<div class="aj-faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button><div class="aj-faq-answer"><p>Pode chegar sem agendamento durante nosso horário de atendimento. Para peças de alto valor ou grandes volumes, recomendamos marcar horário pelo WhatsApp para garantir atendimento exclusivo e sem espera.</p></div></div>
+    <div class="aj-faq-item"><button class="aj-faq-question" aria-expanded="false">Vocês compram ouro sem nota fiscal ou documentação?<div class="aj-faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button><div class="aj-faq-answer"><p>Sim. Ouro 18K, 14K, 750, joias herdadas e peças antigas sem documentação são aceitas normalmente. Apenas solicitamos um documento de identidade do vendedor, conforme exigência do Banco Central do Brasil.</p></div></div>
+    <div class="aj-faq-item"><button class="aj-faq-question" aria-expanded="false">Como é calculado o valor do meu ouro?<div class="aj-faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button><div class="aj-faq-answer"><p>O valor é calculado com base no peso em gramas, na pureza do metal (determinada pelo espectrômetro XRF) e na cotação internacional do ouro no dia da avaliação (LBMA). Apresentamos a memória de cálculo de forma transparente antes de qualquer proposta.</p></div></div>
+    <div class="aj-faq-item"><button class="aj-faq-question" aria-expanded="false">Vocês compram relógios de luxo com defeito?<div class="aj-faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button><div class="aj-faq-answer"><p>Sim, compramos relógios com defeito, arranhados, sem caixa ou sem papéis. O valor é ajustado conforme o estado, mas qualquer Rolex ou grande maison tem valor de compra, independente das condições.</p></div></div>
+    <div class="aj-faq-item"><button class="aj-faq-question" aria-expanded="false">Como chegar à Alex Joias em Laranjeiras?<div class="aj-faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button><div class="aj-faq-answer"><p>Estamos em Laranjeiras, acessível pelo Túnel Santa Bárbara vindo de Copacabana/Ipanema, ou pela Rua Pinheiro Machado. Transporte público: Metrô estação Catete + ônibus para Laranjeiras. Referência: próximos ao Largo do Machado e ao Palácio das Laranjeiras.</p></div></div>
+    <div class="aj-faq-item"><button class="aj-faq-question" aria-expanded="false">A avaliação é realmente gratuita e sem compromisso?<div class="aj-faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button><div class="aj-faq-answer"><p>Absolutamente. A avaliação é 100% gratuita e sem nenhuma obrigação de venda. Se não aceitar nossa proposta, pegue suas peças e vá embora — sem custo, sem pressão, sem perguntas. Nossa reputação se baseia exatamente nisso.</p></div></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 12 — MAPA + CONTATO
+══════════════════════════════════════ -->
+<section id="aj-map" data-section="aj-map">
+  <div class="aj-reveal">
+    <div class="aj-section-eyebrow">Localização</div>
+    <h2 class="aj-section-title">Encontre-nos<br>em <em>Laranjeiras</em></h2>
+    <p class="aj-body-text">Ao lado do Largo do Machado, perto do Palácio das Laranjeiras. Fácil acesso pela Zona Sul do Rio.</p>
+    <ul class="aj-contact-list">
+      <li class="aj-contact-item"><div class="aj-contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="aj-contact-label">Endereço</div><div class="aj-contact-value">Laranjeiras, Rio de Janeiro — RJ<br>Próximo ao Largo do Machado</div></div></li>
+      <li class="aj-contact-item"><div class="aj-contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.42 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></div><div><div class="aj-contact-label">WhatsApp</div><div class="aj-contact-value">(21) 9 9999-9999<br>Atendimento de seg a sáb</div></div></li>
+      <li class="aj-contact-item"><div class="aj-contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="aj-contact-label">Horário</div><div class="aj-contact-value">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 14h</div></div></li>
+      <li class="aj-contact-item"><div class="aj-contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="aj-contact-label">Email</div><div class="aj-contact-value">contato@compraourorj.com.br</div></div></li>
+    </ul>
+  </div>
+  <div class="aj-reveal aj-reveal-delay-1">
+    <iframe class="aj-map-embed" src="https://www.openstreetmap.org/export/embed.html?bbox=-43.1960%2C-22.9350%2C-43.1760%2C-22.9200&amp;layer=mapnik&amp;marker=-22.9275%2C-43.1860" allowfullscreen loading="lazy" title="Mapa — Alex Joias em Laranjeiras, Rio de Janeiro"></iframe>
+    <p style="font-family:var(--font-ui);font-size:0.75rem;color:rgba(245,240,232,0.3);margin-top:8px;text-align:right;">© <a href="https://www.openstreetmap.org/copyright" style="color:rgba(212,175,55,0.4);">OpenStreetMap</a></p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SEÇÃO 13 — CTA FINAL
+══════════════════════════════════════ -->
+<section id="aj-cta" data-section="aj-cta">
+  <div class="aj-cta-content aj-reveal">
+    <div class="aj-section-eyebrow" style="justify-content:center;">Próximo Passo</div>
+    <h2 class="aj-cta-title">Traga suas peças.<br>Descubra o <em>real valor</em><br>do seu patrimônio.</h2>
+    <p class="aj-cta-sub">Avaliação gratuita, pagamento imediato e total discrição.<br>Atendemos em Laranjeiras — a poucos minutos do Largo do Machado.</p>
+    <div class="aj-cta-actions">
+      <a class="aj-btn-primary" href="https://wa.me/5521999999999?text=Ol%C3%A1%2C+quero+agendar+uma+avalia%C3%A7%C3%A3o+gratuita+em+Laranjeiras." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+      <a class="aj-btn-secondary" href="tel:+5521999999999">Ligar Agora</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer id="aj-footer">
+  <div class="aj-footer-top">
+    <div>
+      <img class="aj-footer-brand-logo" src="https://compraourorj.com.br/wp-content/uploads/alex-joias/logo-maison.png" alt="Maison Alex Joias" loading="lazy">
+      <p class="aj-footer-tagline">"A melhor avaliação começa com quem conhece o verdadeiro valor de cada peça."</p>
+    </div>
+    <div>
+      <div class="aj-footer-col-title">Navegação</div>
+      <ul class="aj-footer-links">
+        <li><a href="#aj-about">Sobre</a></li>
+        <li><a href="#aj-services">Serviços</a></li>
+        <li><a href="#aj-process">Como Funciona</a></li>
+        <li><a href="#aj-watches">Relógios</a></li>
+        <li><a href="#aj-faq">Perguntas Frequentes</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="aj-footer-col-title">Outros Bairros</div>
+      <ul class="aj-footer-links">
+        <li><a href="https://compraourorj.com.br/copacabana">Copacabana</a></li>
+        <li><a href="https://compraourorj.com.br/ipanema">Ipanema</a></li>
+        <li><a href="https://compraourorj.com.br/leblon">Leblon</a></li>
+        <li><a href="https://compraourorj.com.br/botafogo">Botafogo</a></li>
+        <li><a href="https://compraourorj.com.br/flamengo">Flamengo</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="aj-footer-bottom">
+    <span class="aj-footer-copy">© 2024 Maison Alex Joias. Todos os direitos reservados. compraourorj.com.br</span>
+    <span class="aj-footer-creci">Empresa registrada · CNPJ disponível no local</span>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     JSON-LD SCHEMA.ORG
+══════════════════════════════════════ -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"JewelryStore","name":"Maison Alex Joias — Compra Ouro RJ","description":"Compra de ouro, joias e relógios de luxo em Laranjeiras, Rio de Janeiro. Avaliação gratuita e pagamento imediato. Desde 1984.","url":"https://compraourorj.com.br/laranjeiras","telephone":"+5521999999999","email":"contato@compraourorj.com.br","foundingDate":"1984","areaServed":{"@type":"City","name":"Rio de Janeiro"},"address":{"@type":"PostalAddress","addressLocality":"Laranjeiras","addressRegion":"RJ","addressCountry":"BR","streetAddress":"Laranjeiras — próximo ao Largo do Machado"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"14:00"}],"priceRange":"$$$","hasMap":"https://www.openstreetmap.org/?mlat=-22.9275&mlon=-43.1860","sameAs":["https://compraourorj.com.br"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"312","bestRating":"5"}}</script>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT — IIFE ÚNICO
+══════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  /* 1. CURSOR PERSONALIZADO */
+  var cur=document.getElementById('aj-cursor'),ring=document.getElementById('aj-cursor-ring');
+  if(cur&&ring){document.addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';});document.querySelectorAll('a,button,.aj-gallery-item').forEach(function(el){el.addEventListener('mouseenter',function(){document.body.classList.add('cursor-hover');});el.addEventListener('mouseleave',function(){document.body.classList.remove('cursor-hover');});});}
+
+  /* 2. BARRA DE PROGRESSO */
+  var prog=document.getElementById('aj-progress');
+  function updateProgress(){if(prog){var st=document.documentElement.scrollTop||document.body.scrollTop,sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;prog.style.width=(st/sh*100)+'%';}}
+  window.addEventListener('scroll',updateProgress,{passive:true});
+
+  /* 3. HEADER AO SCROLL */
+  var hdr=document.getElementById('aj-header');
+  window.addEventListener('scroll',function(){if(hdr){if(window.scrollY>60){hdr.classList.add('scrolled');}else{hdr.classList.remove('scrolled');}}},{passive:true});
+
+  /* 4. PARALLAX HERO */
+  var heroBg=document.getElementById('ajHeroBg'),parBg=document.getElementById('ajParallaxBg');
+  window.addEventListener('scroll',function(){var s=window.scrollY;if(heroBg){heroBg.style.transform='translateY('+(s*0.35)+'px) scale(1.08)';}if(parBg){var el=document.getElementById('aj-parallax'),rect=el?el.getBoundingClientRect():null;if(rect){parBg.style.transform='translateY('+((rect.top+s)*0.25-80)+'px)';}}},{passive:true});
+
+  /* 5. TYPEWRITER */
+  var phrases=['Avaliação gratuita e pagamento imediato.','Especialistas em ouro, joias e Rolex.','Discrição absoluta em Laranjeiras.','Próximos ao Largo do Machado.','Cotação internacional atualizada.'],pi=0,ci=0,del=false,tw=document.getElementById('ajTypewriter');
+  function typeStep(){if(!tw)return;if(!del&&ci<phrases[pi].length){tw.textContent=phrases[pi].slice(0,++ci);setTimeout(typeStep,52);}else if(!del&&ci===phrases[pi].length){del=true;setTimeout(typeStep,1800);}else if(del&&ci>0){tw.textContent=phrases[pi].slice(0,--ci);setTimeout(typeStep,28);}else{del=false;pi=(pi+1)%phrases.length;setTimeout(typeStep,400);}}
+  typeStep();
+
+  /* 6. CONTADORES */
+  function animCount(el){var target=parseFloat(el.dataset.count),dec=parseInt(el.dataset.decimals||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',dur=1800,start=null;if(target>=1000){suf=(target>=1000?'K+':suf);target=target/1000;}function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),ease=1-Math.pow(1-p,3),val=target*ease;el.textContent=pre+(dec?val.toFixed(dec):Math.floor(val))+suf;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+  var counted=false;
+  function checkCounts(){if(counted)return;var sec=document.getElementById('aj-stats');if(sec&&sec.getBoundingClientRect().top<window.innerHeight-80){counted=true;sec.querySelectorAll('[data-count]').forEach(animCount);}}
+  window.addEventListener('scroll',checkCounts,{passive:true});checkCounts();
+
+  /* 7. SCROLL REVEAL */
+  var revEls=document.querySelectorAll('.aj-reveal');
+  var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:0.12});
+  revEls.forEach(function(el){ro.observe(el);});
+
+  /* 8. NAV DOTS */
+  var dots=document.querySelectorAll('.aj-dot'),sections=[];
+  dots.forEach(function(d){var id=d.dataset.section,sec=document.getElementById(id);if(sec)sections.push({dot:d,sec:sec});d.addEventListener('click',function(){var target=document.getElementById(d.dataset.section);if(target)target.scrollIntoView({behavior:'smooth'});});});
+  function updateDots(){var cy=window.scrollY+window.innerHeight/2;sections.forEach(function(s){var top=s.sec.offsetTop,bot=top+s.sec.offsetHeight;s.dot.classList.toggle('active',cy>=top&&cy<bot);});}
+  window.addEventListener('scroll',updateDots,{passive:true});
+
+  /* 9. FAQ ACCORDION */
+  document.querySelectorAll('.aj-faq-question').forEach(function(btn){btn.addEventListener('click',function(){var ans=btn.nextElementSibling,isOpen=btn.classList.contains('active');document.querySelectorAll('.aj-faq-question.active').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');});if(!isOpen){btn.classList.add('active');btn.setAttribute('aria-expanded','true');ans.classList.add('open');}});});
+
+  /* 10. MARQUEE DUPLICA */
+  var mq=document.getElementById('ajMarquee');
+  if(mq){var clone=mq.cloneNode(true);clone.setAttribute('aria-hidden','true');mq.parentNode.appendChild(clone);}
+
+  /* 11. SCHEMA BREADCRUMB DINÂMICO */
+  var bc=document.createElement('script');bc.type='application/ld+json';bc.textContent=JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://compraourorj.com.br"},{"@type":"ListItem","position":2,"name":"Compra Ouro em Laranjeiras","item":"https://compraourorj.com.br/laranjeiras"}]});document.head.appendChild(bc);
+
+  /* 12. LAZY LOAD FALLBACK */
+  if(!('loading' in HTMLImageElement.prototype)){var imgs=document.querySelectorAll('img[loading="lazy"]');var imgObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var img=e.target;img.src=img.dataset.src||img.src;imgObs.unobserve(img);}});});imgs.forEach(function(i){imgObs.observe(i);});}
+
+  /* 13. SMOOTH ANCHOR */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href').slice(1),target=document.getElementById(id);if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}});});
+
+  /* 14. GALLERY HOVER LABEL */
+  document.querySelectorAll('.aj-gallery-item').forEach(function(item){item.addEventListener('mouseenter',function(){item.style.zIndex=2;});item.addEventListener('mouseleave',function(){item.style.zIndex='';});});
+
+  /* 15. SERVICE CARD TILT (DESKTOP) */
+  if(window.matchMedia('(hover:hover)').matches){document.querySelectorAll('.aj-service-card').forEach(function(card){card.addEventListener('mousemove',function(e){var r=card.getBoundingClientRect(),mx=e.clientX-r.left-r.width/2,my=e.clientY-r.top-r.height/2;card.style.transform='translateY(-4px) rotateX('+(my/-30)+'deg) rotateY('+(mx/30)+'deg)';card.style.transition='transform 0.1s';});card.addEventListener('mouseleave',function(){card.style.transform='';card.style.transition='transform 0.4s';});});}
+
+  /* 16. WA BTN TOOLTIP */
+  var waBtn=document.getElementById('aj-whatsapp');
+  if(waBtn){var tip=document.createElement('div');tip.textContent='Falar agora';tip.style.cssText='position:absolute;right:68px;top:50%;transform:translateY(-50%);background:rgba(5,5,5,0.85);color:#f5f0e8;font-family:Inter,sans-serif;font-size:0.75rem;padding:6px 12px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.3s;backdrop-filter:blur(8px);';waBtn.style.position='fixed';waBtn.appendChild(tip);waBtn.addEventListener('mouseenter',function(){tip.style.opacity='1';});waBtn.addEventListener('mouseleave',function(){tip.style.opacity='0';});}
+
+  /* 17. PRINT PROTECTION (DISCRETO) */
+  window.addEventListener('beforeprint',function(){document.querySelectorAll('img').forEach(function(img){img.dataset.src=img.src;img.removeAttribute('src');});});
+  window.addEventListener('afterprint',function(){document.querySelectorAll('img[data-src]').forEach(function(img){img.src=img.dataset.src;});});
+
+  /* 18. PERF: PRECONNECT WHATSAPP */
+  var link=document.createElement('link');link.rel='preconnect';link.href='https://wa.me';document.head.appendChild(link);
+
+})();
+</script>
+
+</body>
+</html>
+<!-- /wp:html -->
